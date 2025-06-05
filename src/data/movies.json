@@ -3,8 +3,8 @@
   {
     "id": "1",
     "title": "Inception",
-    "posterUrl": "https://placehold.co/400x600.png?text=Inception",
-    "backdropUrl": "https://placehold.co/1280x720.png?text=Inception+Backdrop",
+    "posterUrl": "https://images.unsplash.com/photo-1580130579792-c4f6ce908069?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW92aWUlMjBwb3N0ZXIlMjBnYW1lfGVufDB8fHx8MTc0OTExNTYzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "backdropUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb3ZpZSUyMGJhY2tkcm9wJTIwc2NlbmV8ZW58MHx8fHwxNzQ5MTE1NjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "description": "A thief who steals information by entering people's dreams is offered a chance to have his criminal history erased as payment for a task considered to be impossible: 'inception', the implantation of another person's idea into a target's subconscious.",
     "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page", "Tom Hardy", "Ken Watanabe"],
     "genre": ["Sci-Fi", "Action", "Thriller", "Adventure"],
@@ -16,7 +16,7 @@
   {
     "id": "2",
     "title": "The Dark Knight",
-    "posterUrl": "https://placehold.co/400x600.png?text=The+Dark+Knight",
+    "posterUrl": "https://images.unsplash.com/photo-1580130544326-80fc93876841?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb3ZpZSUyMHBvc3RlciUyMGdhbWV8ZW58MHx8fHwxNzQ5MTE1NjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "backdropUrl": "https://placehold.co/1280x720.png?text=Dark+Knight+Backdrop",
     "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
     "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart", "Michael Caine", "Maggie Gyllenhaal"],
@@ -29,7 +29,7 @@
   {
     "id": "3",
     "title": "Pulp Fiction",
-    "posterUrl": "https://placehold.co/400x600.png?text=Pulp+Fiction",
+    "posterUrl": "https://images.unsplash.com/photo-1485846234645-a62644f84728?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb3ZpZSUyMHBvc3RlciUyMGdhbWV8ZW58MHx8fHwxNzQ5MTE1NjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "backdropUrl": "https://placehold.co/1280x720.png?text=Pulp+Fiction+Backdrop",
     "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
     "cast": ["John Travolta", "Uma Thurman", "Samuel L. Jackson", "Bruce Willis", "Ving Rhames"],
@@ -42,7 +42,7 @@
   {
     "id": "4",
     "title": "Interstellar",
-    "posterUrl": "https://placehold.co/400x600.png?text=Interstellar",
+    "posterUrl": "https://images.unsplash.com/photo-1584448097764-374f81551427?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb3ZpZSUyMHBvc3RlciUyMGdhbWV8ZW58MHx8fHwxNzQ5MTE1NjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "backdropUrl": "https://placehold.co/1280x720.png?text=Interstellar+Backdrop",
     "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
     "cast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain", "Michael Caine", "Mackenzie Foy"],
@@ -55,7 +55,7 @@
   {
     "id": "5",
     "title": "Parasite",
-    "posterUrl": "https://placehold.co/400x600.png?text=Parasite",
+    "posterUrl": "https://images.unsplash.com/photo-1571847140471-1d7766e825ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtb3ZpZSUyMHBvc3RlciUyMGdhbWV8ZW58MHx8fHwxNzQ5MTE1NjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "backdropUrl": "https://placehold.co/1280x720.png?text=Parasite+Backdrop",
     "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
     "cast": ["Song Kang-ho", "Lee Sun-kyun", "Cho Yeo-jeong", "Choi Woo-shik", "Park So-dam"],
@@ -68,7 +68,7 @@
   {
     "id": "6",
     "title": "The Matrix",
-    "posterUrl": "https://placehold.co/400x600.png?text=The+Matrix",
+    "posterUrl": "https://images.unsplash.com/photo-1584448141569-69f342da535c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb3ZpZSUyMHBvc3RlciUyMGdhbWV8ZW58MHx8fHwxNzQ5MTE1NjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "backdropUrl": "https://placehold.co/1280x720.png?text=The+Matrix+Backdrop",
     "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
     "cast": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss", "Hugo Weaving"],
@@ -81,7 +81,7 @@
   {
     "id": "7",
     "title": "Spirited Away",
-    "posterUrl": "https://placehold.co/400x600.png?text=Spirited+Away",
+    "posterUrl": "https://images.unsplash.com/photo-1580130601254-05fa235abeab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb3ZpZSUyMHBvc3RlciUyMGdhbWV8ZW58MHx8fHwxNzQ5MTE1NjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "backdropUrl": "https://placehold.co/1280x720.png?text=Spirited+Away+Backdrop",
     "description": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.",
     "cast": ["Rumi Hiiragi", "Miyu Irino", "Mari Natsuki"],
@@ -94,7 +94,7 @@
   {
     "id": "8",
     "title": "The Lord of the Rings: The Return of the King",
-    "posterUrl": "https://placehold.co/400x600.png?text=LOTR+Return+King",
+    "posterUrl": "https://images.unsplash.com/photo-1580130601254-05fa235abeab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb3ZpZSUyMHBvc3RlciUyMGdhbWV8ZW58MHx8fHwxNzQ5MTE1NjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     "backdropUrl": "https://placehold.co/1280x720.png?text=LOTR+Backdrop",
     "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
     "cast": ["Elijah Wood", "Viggo Mortensen", "Ian McKellen"],
@@ -103,5 +103,75 @@
     "year": 2003,
     "duration": "3h 21min",
     "categories": ["classics", "popular", "editor-choice"]
+  },
+  {
+    "id": "9",
+    "title": "The Grand Budapest Hotel",
+    "posterUrl": "https://placehold.co/400x600.png?text=Grand+Budapest+Hotel",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Grand+Budapest+Backdrop",
+    "description": "The adventures of Gustave H, a legendary concierge at a famous hotel from the fictional Republic of Zubrowka between the first and second World Wars, and Zero Moustafa, the lobby boy who becomes his most trusted friend.",
+    "cast": ["Ralph Fiennes", "F. Murray Abraham", "Mathieu Amalric"],
+    "genre": ["Adventure", "Comedy", "Drama"],
+    "rating": 8.1,
+    "year": 2014,
+    "duration": "1h 39min",
+    "categories": ["editor-choice", "comedy"],
+    "data-ai-hint": "hotel comedy"
+  },
+  {
+    "id": "10",
+    "title": "Mad Max: Fury Road",
+    "posterUrl": "https://placehold.co/400x600.png?text=Mad+Max+Fury+Road",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Mad+Max+Backdrop",
+    "description": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the help of a group of female prisoners, a psychotic worshiper, and a drifter named Max.",
+    "cast": ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
+    "genre": ["Action", "Adventure", "Sci-Fi"],
+    "rating": 8.1,
+    "year": 2015,
+    "duration": "2h",
+    "categories": ["trending", "action", "sci-fi"],
+    "data-ai-hint": "action desert"
+  },
+  {
+    "id": "11",
+    "title": "Whiplash",
+    "posterUrl": "https://placehold.co/400x600.png?text=Whiplash",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Whiplash+Backdrop",
+    "description": "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential.",
+    "cast": ["Miles Teller", "J.K. Simmons", "Paul Reiser"],
+    "genre": ["Drama", "Music"],
+    "rating": 8.5,
+    "year": 2014,
+    "duration": "1h 46min",
+    "categories": ["popular", "drama"],
+    "data-ai-hint": "music drama"
+  },
+  {
+    "id": "12",
+    "title": "Blade Runner 2049",
+    "posterUrl": "https://placehold.co/400x600.png?text=Blade+Runner+2049",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Blade+Runner+Backdrop",
+    "description": "Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years.",
+    "cast": ["Ryan Gosling", "Harrison Ford", "Ana de Armas"],
+    "genre": ["Sci-Fi", "Action", "Drama", "Mystery", "Thriller"],
+    "rating": 8.0,
+    "year": 2017,
+    "duration": "2h 44min",
+    "categories": ["sci-fi", "popular"],
+    "data-ai-hint": "futuristic neon"
+  },
+  {
+    "id": "13",
+    "title": "Spider-Man: Into the Spider-Verse",
+    "posterUrl": "https://placehold.co/400x600.png?text=Spider-Verse",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Spider-Verse+Backdrop",
+    "description": "Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.",
+    "cast": ["Shameik Moore", "Jake Johnson", "Hailee Steinfeld"],
+    "genre": ["Animation", "Action", "Adventure", "Family", "Sci-Fi"],
+    "rating": 8.4,
+    "year": 2018,
+    "duration": "1h 57min",
+    "categories": ["trending", "animation", "action"],
+    "data-ai-hint": "animated superhero"
   }
 ]

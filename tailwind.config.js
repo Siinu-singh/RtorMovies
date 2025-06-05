@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
@@ -96,5 +95,9 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('tailwind-scrollbar-hide'), // For basic scrollbar hiding
+    require('tailwind-scrollbar')({ nocompatible: true }), // For scrollbar styling
+  ],
 };

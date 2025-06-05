@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className={cn(inter.variable, poppins.variable, "font-body antialiased flex flex-col min-h-screen overflow-x-hidden")}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar />
-          <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
+          <main className="flex-grow">{children}</main>
           <Footer />
           <Toaster />
         </ThemeProvider>
