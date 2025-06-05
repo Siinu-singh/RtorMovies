@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Prime Video Dark Theme */
+    --background: 216 30% 7%; /* #0F172A - Very dark navy blue */
+    --foreground: 210 20% 90%; /* #E0E7EF - Light grey, slightly bluish */
+
+    --card: 216 30% 10%; /* #131B31 - Slightly lighter than background for cards/dropdowns */
+    --card-foreground: 210 20% 90%; /* #E0E7EF */
+
+    --popover: 216 30% 10%; /* #131B31 */
+    --popover-foreground: 210 20% 90%; /* #E0E7EF */
+
+    --primary: 205 90% 50%; /* #1A98FF - Bright Prime blue */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF - White text on primary */
+
+    --secondary: 216 30% 15%; /* #1C253E - Dark greyish blue */
+    --secondary-foreground: 210 20% 80%; /* Slightly darker than main foreground */
+
+    --muted: 216 30% 15%; /* #1C253E */
+    --muted-foreground: 210 15% 70%; /* #A9B4C2 - Medium grey */
+
+    --accent: 205 80% 55%; /* #33A6FF - Slightly lighter Prime blue for hover states */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --destructive: 0 62.8% 30.6%; /* Default dark destructive */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 216 30% 12%; /* #182137 - Subtle border, slightly lighter than background */
+    --input: 216 30% 15%; /* #1C253E - Input background */
+    --ring: 205 90% 50%; /* Prime blue for focus rings */
+
+    --radius: 0.5rem;
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    --sidebar-background: 216 30% 5%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 205 90% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 205 80% 55%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 216 30% 10%;
+    --sidebar-ring: 205 90% 50%;
+  }
+
+  .light {
+    /* Light Theme (keeping for completeness, but Prime Video is dark) */
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 3.9%; /* Nearly Black */
+
+    --card: 0 0% 96%; 
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 96%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 205 90% 45%; 
+    --primary-foreground: 0 0% 100%; 
+
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 205 80% 50%; 
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%; 
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 85%; 
+    --input: 0 0% 85%;
+    --ring: 205 90% 45%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 26.1%;
+    --sidebar-primary: 205 90% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 205 80% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 91%;
+    --sidebar-ring: 205 90% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1,"calt" 1;
+  }
+}

@@ -1,0 +1,107 @@
+
+[
+  {
+    "id": "1",
+    "title": "Inception",
+    "posterUrl": "https://placehold.co/400x600.png?text=Inception",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Inception+Backdrop",
+    "description": "A thief who steals information by entering people's dreams is offered a chance to have his criminal history erased as payment for a task considered to be impossible: 'inception', the implantation of another person's idea into a target's subconscious.",
+    "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page", "Tom Hardy", "Ken Watanabe"],
+    "genre": ["Sci-Fi", "Action", "Thriller", "Adventure"],
+    "rating": 8.8,
+    "year": 2010,
+    "duration": "2h 28min",
+    "categories": ["trending", "popular", "sci-fi"]
+  },
+  {
+    "id": "2",
+    "title": "The Dark Knight",
+    "posterUrl": "https://placehold.co/400x600.png?text=The+Dark+Knight",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Dark+Knight+Backdrop",
+    "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart", "Michael Caine", "Maggie Gyllenhaal"],
+    "genre": ["Action", "Crime", "Drama", "Thriller"],
+    "rating": 9.0,
+    "year": 2008,
+    "duration": "2h 32min",
+    "categories": ["popular", "classics"]
+  },
+  {
+    "id": "3",
+    "title": "Pulp Fiction",
+    "posterUrl": "https://placehold.co/400x600.png?text=Pulp+Fiction",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Pulp+Fiction+Backdrop",
+    "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+    "cast": ["John Travolta", "Uma Thurman", "Samuel L. Jackson", "Bruce Willis", "Ving Rhames"],
+    "genre": ["Crime", "Drama"],
+    "rating": 8.9,
+    "year": 1994,
+    "duration": "2h 34min",
+    "categories": ["classics"]
+  },
+  {
+    "id": "4",
+    "title": "Interstellar",
+    "posterUrl": "https://placehold.co/400x600.png?text=Interstellar",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Interstellar+Backdrop",
+    "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "cast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain", "Michael Caine", "Mackenzie Foy"],
+    "genre": ["Sci-Fi", "Drama", "Adventure"],
+    "rating": 8.7,
+    "year": 2014,
+    "duration": "2h 49min",
+    "categories": ["trending", "sci-fi", "popular"]
+  },
+  {
+    "id": "5",
+    "title": "Parasite",
+    "posterUrl": "https://placehold.co/400x600.png?text=Parasite",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Parasite+Backdrop",
+    "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+    "cast": ["Song Kang-ho", "Lee Sun-kyun", "Cho Yeo-jeong", "Choi Woo-shik", "Park So-dam"],
+    "genre": ["Comedy", "Drama", "Thriller"],
+    "rating": 8.5,
+    "year": 2019,
+    "duration": "2h 12min",
+    "categories": ["trending", "editor-choice"]
+  },
+  {
+    "id": "6",
+    "title": "The Matrix",
+    "posterUrl": "https://placehold.co/400x600.png?text=The+Matrix",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=The+Matrix+Backdrop",
+    "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    "cast": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss", "Hugo Weaving"],
+    "genre": ["Action", "Sci-Fi"],
+    "rating": 8.7,
+    "year": 1999,
+    "duration": "2h 16min",
+    "categories": ["popular", "classics", "sci-fi"]
+  },
+  {
+    "id": "7",
+    "title": "Spirited Away",
+    "posterUrl": "https://placehold.co/400x600.png?text=Spirited+Away",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=Spirited+Away+Backdrop",
+    "description": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.",
+    "cast": ["Rumi Hiiragi", "Miyu Irino", "Mari Natsuki"],
+    "genre": ["Animation", "Adventure", "Family", "Fantasy"],
+    "rating": 8.6,
+    "year": 2001,
+    "duration": "2h 5min",
+    "categories": ["popular", "classics", "editor-choice"]
+  },
+  {
+    "id": "8",
+    "title": "The Lord of the Rings: The Return of the King",
+    "posterUrl": "https://placehold.co/400x600.png?text=LOTR+Return+King",
+    "backdropUrl": "https://placehold.co/1280x720.png?text=LOTR+Backdrop",
+    "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+    "cast": ["Elijah Wood", "Viggo Mortensen", "Ian McKellen"],
+    "genre": ["Action", "Adventure", "Drama", "Fantasy"],
+    "rating": 9.0,
+    "year": 2003,
+    "duration": "3h 21min",
+    "categories": ["classics", "popular", "editor-choice"]
+  }
+]
