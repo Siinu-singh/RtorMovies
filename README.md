@@ -92,7 +92,8 @@ npm run start
 
 ## Author
 
-*   Suraj kumar
+*   Suraj kumar singh
+
 
 ---
 
