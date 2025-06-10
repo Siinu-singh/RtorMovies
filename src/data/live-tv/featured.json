@@ -1,0 +1,23 @@
+[
+  {
+    "name": "FIFA+",
+    "slug": "fifa-plus",
+    "description": "Live matches, highlights, and original content from the world of football.",
+    "thumbnail": "/images/live-tv/featured/fifa-plus.jpg",
+    "items": []
+  },
+  {
+    "name": "Shemaroo Bollywood",
+    "slug": "shemaroo-bollywood",
+    "description": "Classic and contemporary Bollywood movies and shows.",
+    "thumbnail": "/images/live-tv/featured/shemaroo-bollywood.jpg",
+    "items": []
+  },
+  {
+    "name": "The Martha Stewart Channel",
+    "slug": "the-martha-stewart-channel",
+    "description": "Cooking, gardening, and lifestyle tips from Martha Stewart.",
+    "thumbnail": "/images/live-tv/featured/martha-stewart.jpg",
+    "items": []
+  }
+]

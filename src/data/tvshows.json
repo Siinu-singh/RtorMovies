@@ -1,0 +1,52 @@
+[
+  {
+    "id": "tv001",
+    "title": "Cosmic Wanderers",
+    "genre": ["Sci-Fi", "Adventure", "Drama"],
+    "releaseYear": 2023,
+    "description": "A group of explorers travels through distant galaxies, encountering strange new worlds and civilizations while searching for a new home for humanity.",
+    "rating": 8.8,
+    "posterUrl": "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?auto=format&fit=crop&w=800&q=60",
+    "backdropUrl": "https://images.unsplash.com/photo-1517976487-151859168362?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": "tv002",
+    "title": "The Last Kingdom's Echo",
+    "genre": ["Fantasy", "Action", "War"],
+    "releaseYear": 2022,
+    "description": "In a land torn by ancient prophecies and warring factions, a lone warrior rises to protect the last remnants of a fallen kingdom.",
+    "rating": 9.1,
+    "posterUrl": "https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&w=800&q=60",
+    "backdropUrl": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": "tv003",
+    "title": "Cyber City Chronicles",
+    "genre": ["Cyberpunk", "Mystery", "Thriller"],
+    "releaseYear": 2024,
+    "description": "A detective in a neon-drenched metropolis uncovers a conspiracy that reaches the highest echelons of a society dominated by technology.",
+    "rating": 8.5,
+    "posterUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726c?auto=format&fit=crop&w=800&q=60",
+    "backdropUrl": "https://images.unsplash.com/photo-1507608443019-8a3fb080c10f?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": "tv004",
+    "title": "Detective Meow",
+    "genre": ["Comedy", "Mystery", "Animation"],
+    "releaseYear": 2023,
+    "description": "A talking cat with a knack for solving crimes teams up with a bumbling human detective. Hilarity and mystery ensue.",
+    "rating": 7.9,
+    "posterUrl": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=60",
+    "backdropUrl": "https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": "tv005",
+    "title": "The Alchemist's Secret",
+    "genre": ["Period Drama", "Mystery", "Romance"],
+    "releaseYear": 2021,
+    "description": "In 18th century Paris, a young apprentice uncovers her master alchemist's dangerous secret, leading her into a world of intrigue and forbidden love.",
+    "rating": 8.2,
+    "posterUrl": "https://images.unsplash.com/photo-1561360391-53165839188f?auto=format&fit=crop&w=800&q=60",
+    "backdropUrl": "https://images.unsplash.com/photo-1489516186203-71440c63e0e3?auto=format&fit=crop&w=1200&q=80"
+  }
+]

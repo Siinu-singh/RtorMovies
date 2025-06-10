@@ -2,9 +2,12 @@
 "use client";
 
 import * as React from "react";
+import { useState } from "react"; // Added useState
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Search, ChevronDown, LayoutGrid, UserCircle, Grid as GridIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import LiveDropdown from '@/components/navbar/LiveDropdown'; // Added LiveDropdown import
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -16,6 +19,7 @@ import {
   navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/utils/Utils";
+import { primeTheme } from '@/theme/theme'; // Import the new theme
 
 const genres = [
   { title: "Action and adventure", href: "/browse/genre/action" },
@@ -41,105 +45,104 @@ const featuredCollections = [
 
 
 export default function Navbar() {
-  const [activePath, setActivePath] = React.useState(null);
-  const [hasMounted, setHasMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setHasMounted(true);
-    // Set path only on client-side after mount
-    if (typeof window !== "undefined") {
-      setActivePath(window.location.pathname);
-    }
-  }, []); // Empty dependency array ensures this runs once on mount
-
+  const pathname = usePathname();
+  const [isLiveTvOpen, setIsLiveTvOpen] = useState(false);
 
   return (
-    <header className={cn(
-      "sticky top-0 z-50 mx-6 mt-2 rounded-lg",
-      "bg-gradient-to-b from-[hsla(var(--card),0.95)] to-[hsla(var(--background),0.95)]",
-      "backdrop-blur supports-[backdrop-filter]:bg-[hsla(var(--background),0.6)]"
-    )}>
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <div className="flex items-center space-x-6">
-          <Link href="/" className="flex items-center space-x-2" onClick={() => hasMounted && setActivePath('/')}>
-            <span className="font-extrabold text-2xl text-foreground tracking-tighter">RtorMovies</span>
+    <header
+      className="sticky top-0 z-50 shadow-md" // Removed mx-6, mt-2, rounded-lg for a full-width feel
+      style={{ backgroundColor: primeTheme.colors.backgroundDarker }}
+    >
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+        <div className="flex items-center space-x-4 md:space-x-6"> {/* Adjusted spacing */}
+          <Link href="/" className="flex items-center space-x-2">
+            {/* Consider using an SVG logo for Prime-like branding if available */}
+            <span className="font-bold text-2xl md:text-3xl tracking-tight" style={{ color: primeTheme.colors.textPrimary}}>RtorMovies</span>
           </Link>
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="/" legacyBehavior passHref>
                   <NavigationMenuLink
-                    className={cn(navigationMenuTriggerStyle(), (hasMounted && activePath === '/') ? 'text-foreground font-semibold border-t-2 border-foreground' : 'text-muted-foreground hover:text-foreground')}
-                    onClick={() => hasMounted && setActivePath('/')}
+                    href="/"
+                    className={cn(navigationMenuTriggerStyle(), "text-sm font-medium", (pathname === '/') ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary')}
+                    style={{ backgroundColor: 'transparent' }} // Ensure nav links are transparent
+                    asChild
                   >
-                    Home
+                    <Link href="/">Home</Link>
                   </NavigationMenuLink>
-                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/movies" legacyBehavior passHref>
                   <NavigationMenuLink
-                    className={cn(navigationMenuTriggerStyle(), (hasMounted && activePath && activePath.startsWith('/movies')) ? 'text-foreground font-semibold border-t-2 border-foreground' : 'text-muted-foreground hover:text-foreground')}
-                    onClick={() => hasMounted && setActivePath('/movies')}
+                    href="/movies"
+                    className={cn(navigationMenuTriggerStyle(), "text-sm font-medium", (pathname && pathname.startsWith('/movies')) ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary')}
+                    style={{ backgroundColor: 'transparent' }}
+                    asChild
                   >
-                    Movies
+                    <Link href="/movies">Movies</Link>
                   </NavigationMenuLink>
-                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/tv-shows" legacyBehavior passHref>
                   <NavigationMenuLink
-                    className={cn(navigationMenuTriggerStyle(), (hasMounted && activePath === '/tv-shows') ? 'text-foreground font-semibold border-t-2 border-foreground' : 'text-muted-foreground hover:text-foreground')}
-                    onClick={() => hasMounted && setActivePath('/tv-shows')}
+                    href="/tv-shows"
+                    className={cn(navigationMenuTriggerStyle(), "text-sm font-medium", (pathname === '/tv-shows') ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary')}
+                    style={{ backgroundColor: 'transparent' }}
+                    asChild
                   >
-                    TV shows
+                    <Link href="/tv-shows">TV shows</Link>
                   </NavigationMenuLink>
-                </Link>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/live-tv" legacyBehavior passHref>
-                  <NavigationMenuLink
-                   className={cn(navigationMenuTriggerStyle(), (hasMounted && activePath === '/live-tv') ? 'text-foreground font-semibold border-t-2 border-foreground' : 'text-muted-foreground hover:text-foreground')}
-                   onClick={() => hasMounted && setActivePath('/live-tv')}
-                  >
-                    Live TV
-                  </NavigationMenuLink>
+              {/* Live TV Dropdown Item */}
+              <NavigationMenuItem className="relative"
+                onMouseEnter={() => setIsLiveTvOpen(true)}
+                onMouseLeave={() => setIsLiveTvOpen(false)}
+              >
+                <Link
+                  href="/live-tv"
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-sm font-medium cursor-pointer",
+                    (pathname === '/live-tv' || pathname.startsWith('/live/')) ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary'
+                  )}
+                  style={{ backgroundColor: 'transparent' }}
+                  onClick={(e) => {
+                    // Allow navigation to /live-tv, but prevent interference if dropdown is also handling click
+                    if (isLiveTvOpen) {
+                      // If dropdown is open, let its links handle navigation primarily
+                      // Or, decide if this main link should always navigate
+                    }
+                    // setIsLiveTvOpen(false); // Optionally close dropdown on main link click
+                  }}
+                >
+                  Live TV
                 </Link>
+                <LiveDropdown isOpen={isLiveTvOpen} onClose={() => setIsLiveTvOpen(false)} />
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className={cn(navigationMenuTriggerStyle(), (hasMounted && activePath && (activePath.startsWith('/browse/genre') || activePath.startsWith('/collections'))) ? 'text-foreground font-semibold border-t-2 border-foreground' : 'text-muted-foreground hover:text-foreground')}
+                  className={cn(navigationMenuTriggerStyle(), "text-sm font-medium", (pathname && (pathname.startsWith('/browse/genre') || pathname.startsWith('/collections'))) ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary')}
+                  style={{ backgroundColor: 'transparent' }}
                 >
                   Categories
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-[1fr_1fr_1fr] gap-x-6 p-6 w-[700px] lg:w-[800px]">
+                  <div className="grid grid-cols-[1fr_1fr_1fr] gap-x-6 p-6 w-[700px] lg:w-[800px]" style={{ backgroundColor: primeTheme.colors.backgroundLight, borderColor: primeTheme.colors.backgroundDarker }}>
                     <div>
-                      <h3 className="mb-3 text-sm font-medium text-muted-foreground">GENRES</h3>
+                      <h3 className="mb-3 text-sm font-medium" style={{ color: primeTheme.colors.textMuted }}>GENRES</h3>
                       <ul className="space-y-1.5">
-                        {genres.slice(0, Math.ceil(genres.length / 2)).map((genre) => (
-                          <ListItem key={genre.title} title={genre.title} href={genre.href} onClick={() => hasMounted && setActivePath(genre.href)}>
-
+                        {genres.map((genre) => ( // Simplified mapping
+                          <ListItem key={genre.title} title={genre.title} href={genre.href} style={{ color: primeTheme.colors.textSecondary, '&:hover': { color: primeTheme.colors.textPrimary } }}>
+                            {/* Content for ListItem if any */}
                           </ListItem>
                         ))}
                       </ul>
                     </div>
+                    {/* For simplicity, I'm only showing one column of genres now. You can re-add the two-column split if needed. */}
                     <div>
-                       <h3 className="mb-3 text-sm font-medium text-muted-foreground opacity-0">GENRES</h3> {/* Hidden header for alignment */}
-                       <ul className="space-y-1.5">
-                        {genres.slice(Math.ceil(genres.length / 2)).map((genre) => (
-                           <ListItem key={genre.title} title={genre.title} href={genre.href} onClick={() => hasMounted && setActivePath(genre.href)}>
-
-                          </ListItem>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="mb-3 text-sm font-medium text-muted-foreground">FEATURED COLLECTIONS</h3>
+                      <h3 className="mb-3 text-sm font-medium" style={{ color: primeTheme.colors.textMuted }}>FEATURED COLLECTIONS</h3>
                       <ul className="space-y-1.5">
                         {featuredCollections.map((collection) => (
-                          <ListItem key={collection.title} title={collection.title} href={collection.href} onClick={() => hasMounted && setActivePath(collection.href)}>
-
+                          <ListItem key={collection.title} title={collection.title} href={collection.href} style={{ color: primeTheme.colors.textSecondary, '&:hover': { color: primeTheme.colors.textPrimary } }}>
+                            {/* Content for ListItem if any */}
                           </ListItem>
                         ))}
                       </ul>
@@ -151,19 +154,25 @@ export default function Navbar() {
           </NavigationMenu>
         </div>
 
-        <div className="flex items-center space-x-4">
-
-          <Link href="/subscriptions" className="flex items-center text-sm text-muted-foreground hover:text-foreground" onClick={() => hasMounted && setActivePath('/subscriptions')}>
-            <LayoutGrid className="h-5 w-5 mr-1" />
-            Subscriptions
-          </Link>
-          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+        <div className="flex items-center space-x-2 md:space-x-3"> {/* Adjusted spacing */}
+          <Button variant="ghost" size="icon" className="hover:bg-backgroundLight" style={{ color: primeTheme.colors.textSecondary, '&:hover': { color: primeTheme.colors.textPrimary } }}>
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
           </Button>
-          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
-             <GridIcon className="h-6 w-6" />
-            <span className="sr-only">Categories</span>
+          {/* "EN" dropdown placeholder */}
+          <Button variant="ghost" className="text-sm font-medium hover:bg-backgroundLight" style={{ color: primeTheme.colors.textSecondary, '&:hover': { color: primeTheme.colors.textPrimary } }}>
+            EN <ChevronDown className="ml-1 h-4 w-4" />
+          </Button>
+          <Button variant="ghost" size="icon" className="hover:bg-backgroundLight" style={{ color: primeTheme.colors.textSecondary, '&:hover': { color: primeTheme.colors.textPrimary } }}>
+            <UserCircle className="h-6 w-6" />
+            <span className="sr-only">Profile</span>
+          </Button>
+           {/* Prime Join Button - Example */}
+          <Button
+            className="text-sm font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-sm" // Prime buttons are often less rounded
+            style={{ backgroundColor: primeTheme.colors.accentBlue, color: primeTheme.colors.white, '&:hover': { backgroundColor: primeTheme.colors.accentBlueHover } }}
+          >
+            Join Prime
           </Button>
         </div>
       </div>

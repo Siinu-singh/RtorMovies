@@ -5,7 +5,10 @@ import { cn } from '@/utils/Utils';
 
 export default function RankedMovieCard({ movie, rank }) {
   return (
-    <Link href={`/movies/${movie.id}`} className="block group relative flex-shrink-0 w-40 md:w-48 transition-all duration-300 ease-in-out hover:scale-105">
+    <Link
+      href={`/movies/${movie.id}`}
+      className="block group relative flex-shrink-0 w-40 md:w-48 transition-all duration-300 ease-in-out hover:scale-105"
+>
       <div className="aspect-[2/3] overflow-hidden rounded-md">
         <Image
           src={movie.posterUrl}

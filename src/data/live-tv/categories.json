@@ -1,0 +1,156 @@
+[
+  {
+    "name": "Hit TV",
+    "slug": "hit-tv",
+    "description": "Popular and trending TV shows.",
+    "thumbnail": "/images/live-tv/categories/hit-tv.jpg",
+    "items": []
+  },
+  {
+    "name": "True Crime",
+    "slug": "true-crime",
+    "description": "Gripping true crime documentaries and series.",
+    "thumbnail": "/images/live-tv/categories/true-crime.jpg",
+    "items": []
+  },
+  {
+    "name": "News",
+    "slug": "news",
+    "description": "Latest news from around the world.",
+    "thumbnail": "/images/live-tv/categories/news.jpg",
+    "items": []
+  },
+  {
+    "name": "Reality",
+    "slug": "reality",
+    "description": "Entertaining reality TV shows.",
+    "thumbnail": "/images/live-tv/categories/reality.jpg",
+    "items": []
+  },
+  {
+    "name": "Movies",
+    "slug": "movies",
+    "description": "A wide selection of movies across genres.",
+    "thumbnail": "/images/live-tv/categories/movies.jpg",
+    "items": []
+  },
+  {
+    "name": "Classic TV",
+    "slug": "classic-tv",
+    "description": "Timeless classic television shows.",
+    "thumbnail": "/images/live-tv/categories/classic-tv.jpg",
+    "items": []
+  },
+  {
+    "name": "Lifestyle",
+    "slug": "lifestyle",
+    "description": "Shows about home, food, travel, and more.",
+    "thumbnail": "/images/live-tv/categories/lifestyle.jpg",
+    "items": []
+  },
+  {
+    "name": "Daytime TV",
+    "slug": "daytime-tv",
+    "description": "Popular daytime television programs.",
+    "thumbnail": "/images/live-tv/categories/daytime-tv.jpg",
+    "items": []
+  },
+  {
+    "name": "Kids & Family",
+    "slug": "kids-family",
+    "description": "Fun and educational content for kids and families.",
+    "thumbnail": "/images/live-tv/categories/kids-family.jpg",
+    "items": []
+  },
+  {
+    "name": "Chills & Thrills",
+    "slug": "chills-thrills",
+    "description": "Exciting thrillers and horror content.",
+    "thumbnail": "/images/live-tv/categories/chills-thrills.jpg",
+    "items": []
+  },
+  {
+    "name": "En Español",
+    "slug": "en-espanol",
+    "description": "Content in Spanish.",
+    "thumbnail": "/images/live-tv/categories/en-espanol.jpg",
+    "items": []
+  },
+  {
+    "name": "Drama TV",
+    "slug": "drama-tv",
+    "description": "Compelling drama series.",
+    "thumbnail": "/images/live-tv/categories/drama-tv.jpg",
+    "items": []
+  },
+  {
+    "name": "Comedy",
+    "slug": "comedy",
+    "description": "Hilarious comedy shows and movies.",
+    "thumbnail": "/images/live-tv/categories/comedy.jpg",
+    "items": []
+  },
+  {
+    "name": "Sports",
+    "slug": "sports",
+    "description": "Live sports, highlights, and analysis.",
+    "thumbnail": "/images/live-tv/categories/sports.jpg",
+    "items": []
+  },
+  {
+    "name": "History & Science",
+    "slug": "history-science",
+    "description": "Documentaries and shows about history and science.",
+    "thumbnail": "/images/live-tv/categories/history-science.jpg",
+    "items": []
+  },
+  {
+    "name": "Sci-Fi & Action",
+    "slug": "sci-fi-action",
+    "description": "Action-packed sci-fi movies and series.",
+    "thumbnail": "/images/live-tv/categories/sci-fi-action.jpg",
+    "items": []
+  },
+  {
+    "name": "Food & Home",
+    "slug": "food-home",
+    "description": "Cooking shows and home improvement ideas.",
+    "thumbnail": "/images/live-tv/categories/food-home.jpg",
+    "items": []
+  },
+  {
+    "name": "Nature & Travel",
+    "slug": "nature-travel",
+    "description": "Explore the world with nature and travel documentaries.",
+    "thumbnail": "/images/live-tv/categories/nature-travel.jpg",
+    "items": []
+  },
+  {
+    "name": "Game Shows",
+    "slug": "game-shows",
+    "description": "Entertaining game shows.",
+    "thumbnail": "/images/live-tv/categories/game-shows.jpg",
+    "items": []
+  },
+  {
+    "name": "Anime+",
+    "slug": "anime-plus",
+    "description": "A wide variety of anime series and movies.",
+    "thumbnail": "/images/live-tv/categories/anime-plus.jpg",
+    "items": []
+  },
+  {
+    "name": "International",
+    "slug": "international",
+    "description": "Content from around the globe.",
+    "thumbnail": "/images/live-tv/categories/international.jpg",
+    "items": []
+  },
+  {
+    "name": "Music",
+    "slug": "music",
+    "description": "Music videos, concerts, and music documentaries.",
+    "thumbnail": "/images/live-tv/categories/music.jpg",
+    "items": []
+  }
+]

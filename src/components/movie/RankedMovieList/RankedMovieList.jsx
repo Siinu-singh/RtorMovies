@@ -22,10 +22,6 @@ export default function RankedMovieList({ title, movies }) {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl md:text-3xl font-headline font-semibold text-white">{title}</h2>
-          {/* TODO: Add scroll functionality if using buttons */}
-          {/* <button className="text-primary hover:text-accent transition-colors">
-            <ChevronRight size={28} />
-          </button> */}
         </div>
         <div className="relative group">
           <div className="flex overflow-x-auto space-x-6 md:space-x-8 pb-4 -mb-4 scrollbar-thin scrollbar-thumb-gray-700/50 scrollbar-track-transparent hover:scrollbar-thumb-gray-600/70">
