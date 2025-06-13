@@ -1,52 +1,169 @@
-import { getAllTVShows } from '@/lib/getTVShows';
-import { primeTheme } from '@/theme/theme'; // Using primeTheme now
-// import TVShowGrid from '@/components/tvshows/TVShowGrid'; // Will be replaced by TVShowRow
-import TVHeroCarousel from '@/components/tvshows/TVHeroCarousel';
-import TVShowRow from '@/components/tvshows/TVShowRow'; // Placeholder for new component
+'use client'; // This page needs to be a client component for state and interactions
 
-export const metadata = {
-  title: 'TV Shows | RtorMovies',
-  description: 'Browse our extensive collection of TV shows, from thrilling adventures to captivating dramas.',
-};
+import { useState, useEffect } from 'react';
+import { primeTheme } from '@/theme/theme';
+// import TVHeroCarousel from '@/components/tvshows/TVHeroCarousel';
+// import { getAllTVShows } from '@/lib/getTVShows';
 
-// This is a Server Component
-export default async function TVShowsPage() {
-  const allShows = await getAllTVShows();
 
-  // For simplicity, we'll categorize shows directly here.
-  // In a real app, this might come from the API or be more dynamic.
-  const categories = [
-    { title: "Top TV", shows: allShows.slice(0, 5) }, // Example slice
-    { title: "Throwback TV", shows: allShows.slice(1, 6).reverse() }, // Example slice
-    { title: "Comedy TV", shows: allShows.filter(s => s.genre.includes("Comedy")).slice(0,5) },
-    // Add more categories as needed
-  ];
+import AnimatedPage from '@/components/tvshows/AnimatedPage';
+import TvGradientHeading from '@/components/tvshows/TvGradientHeading';
+import TvCategorySection from '@/components/tvshows/TvCategorySection';
+import TvShowGrid from '@/components/tvshows/TVShowGrid';
+import { Skeleton } from "@/components/ui/skeleton";
+import TvShowSearch from '@/components/tvshows/TvShowSearch';
 
-  const heroShows = allShows.slice(0, 3); // Example: first 3 shows for hero
+// Moved getAllGenres function here
+function getAllGenres(tvShows) {
+  if (!tvShows || tvShows.length === 0) {
+    return [];
+  }
+  const allGenresSet = new Set();
+  tvShows.forEach(show => {
+    if (show.genre && Array.isArray(show.genre)) {
+      show.genre.forEach(g => allGenresSet.add(g));
+    }
+  });
+  return Array.from(allGenresSet).sort();
+}
+
+
+function TvShowsPageContent() {
+  const [allTvShows, setAllTvShows] = useState([]);
+  const [filteredTvShows, setFilteredTvShows] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState("All Shows");
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(''); // State for search
+
+  useEffect(() => {
+    async function fetchData() {
+      setIsLoading(true);
+      try {
+        const response = await fetch('/data/tvshows.json');
+        if (!response.ok) {
+          console.warn("Direct fetch of tvshows.json failed. Trying dynamic import for demo.");
+          const dataModule = await import('@/data/tvshows.json');
+          const shows = dataModule.default;
+
+          setAllTvShows(shows);
+          setFilteredTvShows(shows);
+          setGenres(getAllGenres(shows));
+
+        } else {
+          const shows = await response.json();
+          setAllTvShows(shows);
+          setFilteredTvShows(shows);
+          setGenres(getAllGenres(shows));
+        }
+
+      } catch (error) {
+        console.error("Error fetching TV shows:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    let showsToFilter = allTvShows;
+
+    if (selectedGenre && selectedGenre !== "All Shows") {
+      showsToFilter = showsToFilter.filter(show => 
+        show.genre && show.genre.includes(selectedGenre)
+      );
+    }
+
+    if (searchTerm) {
+      showsToFilter = showsToFilter.filter(show =>
+        show.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (show.description && show.description.toLowerCase().includes(searchTerm.toLowerCase()))
+      );
+    }
+
+    setFilteredTvShows(showsToFilter);
+  }, [selectedGenre, allTvShows, searchTerm]);
+
+  const handleSelectGenre = (genre) => {
+    setSelectedGenre(genre);
+  };
+
+  const handleSearchChange = (value) => {
+    setSearchTerm(value);
+  };
+
+  useEffect(() => {
+    let title = 'TV Shows | Mp4movies';
+    if (searchTerm) {
+      title = `Search: ${searchTerm} | TV Shows | Mp4movies`;
+    } else if (selectedGenre) {
+      title = `${selectedGenre} TV Shows | Mp4movies`;
+    }
+    document.title = title;
+  }, [selectedGenre, searchTerm]);
+
+
+  // const allShows = getAllTVShows();
+  // const heroShows = allShows.slice(0, 3);
+
+  console.log("filteredTvShows", filteredTvShows);
+
 
   return (
-    <div style={{ backgroundColor: primeTheme.colors.backgroundDarker, color: primeTheme.colors.textPrimary }} className="min-h-screen">
-      {/* Navbar is in root layout */}
-      
-      <TVHeroCarousel shows={heroShows} />
+    <AnimatedPage>
+      <div className="container mx-auto ">
+        {/* <TVHeroCarousel shows={heroShows} /> */}
+        <TvGradientHeading text="Discover TV Shows" />
 
-      <main className="space-y-8 md:space-y-12 pb-12 pt-8"> {/* Added pt-8 to give space after hero */}
-        <div className="px-4 md:px-8 lg:px-12">
-            <h1 className="text-3xl md:text-4xl font-semibold mb-6" style={{color: primeTheme.colors.textPrimary}}>TV shows</h1>
-            {/* Placeholder for TVShowRow components */}
-            {categories.map(category => (
-              <section key={category.title} className="mb-8">
-                <div className="flex justify-between items-center mb-3">
-                  <h2 className="text-xl md:text-2xl font-semibold" style={{color: primeTheme.colors.textPrimary}}>{category.title}</h2>
-                  <a href="#" className="text-sm font-medium hover:underline" style={{color: primeTheme.colors.accentBlueHover}}>
-                    See more &amp;gt;
-                  </a>
+        {/* New Search Component */}
+        <TvShowSearch
+          searchTerm={searchTerm}
+          onSearchChange={handleSearchChange}
+        />
+
+        {isLoading && genres.length === 0 && (
+          <div className="mb-8 md:mb-12 px-4">
+            <Skeleton className="h-8 w-1/4 mb-4" />
+            <div className="flex space-x-3">
+              {[...Array(5)].map((_, i) => <Skeleton key={i} className="h-12 w-24 rounded-lg" />)}
+            </div>
+          </div>
+        )}
+        {!isLoading && genres.length > 0 && (
+          <TvCategorySection
+            genres={genres}
+            selectedGenre={selectedGenre}
+            onSelectGenre={handleSelectGenre}
+          />
+        )}
+
+        {isLoading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 px-4">
+            {[...Array(10)].map((_, i) => (
+              <div key={i} className="bg-card rounded-xl shadow-lg overflow-hidden">
+                <Skeleton className="aspect-[2/3] w-full" />
+                <div className="p-3">
+                  <Skeleton className="h-5 w-3/4 mb-2" />
+                  <Skeleton className="h-3 w-1/2 mb-1" />
+                  <Skeleton className="h-3 w-1/4" />
                 </div>
-                <TVShowRow shows={category.shows} title="" /> {/* Title is already displayed above the row */}
-              </section>
+              </div>
             ))}
-        </div>
-      </main>
-    </div>
+          </div>
+        ) : (
+          <div className="mt-8">
+            <TvShowGrid tvShows={filteredTvShows} />
+          </div>
+        )}
+      </div>
+
+
+    </AnimatedPage>
   );
+}
+
+
+export default function TvShowsPage() {
+  return <TvShowsPageContent />;
 }

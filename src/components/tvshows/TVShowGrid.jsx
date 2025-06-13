@@ -1,46 +1,37 @@
-"use client";
 
-import { motion } from 'framer-motion';
-import TVShowCard from './TVShowCard';
+'use client';
 
-const gridContainerVariants = {
+import TvShowCard from './TVShowCard';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const gridVariants = {
   hidden: { opacity: 0 },
-  visible: {
+  show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // Stagger animation for each child
+      staggerChildren: 0.1, // This will be overridden by TvShowCard's individual delay
     },
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 10,
-    },
-  },
-};
-
-export default function TVShowGrid({ shows }) {
-  if (!shows || shows.length === 0) {
-    return <p className="text-textSecondary text-center py-10">No TV shows found.</p>;
+export default function TvShowGrid({ tvShows }) {
+  if (!tvShows || tvShows.length === 0) {
+    return <p className="text-center text-muted-foreground py-10 text-lg">No TV shows match your criteria.</p>;
   }
 
   return (
     <motion.div
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6"
-      variants={gridContainerVariants}
+      key={tvShows.map(s => s.id).join('-')} // Force re-render for AnimatePresence on filter change
+      variants={gridVariants}
       initial="hidden"
-      animate="visible"
+      animate="show"
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 px-4"
     >
-      {shows.map((show) => (
-        <TVShowCard key={show.id} show={show} variants={cardVariants} />
-      ))}
+      <AnimatePresence>
+        {tvShows.map((tvShow, index) => (
+          <TvShowCard key={tvShow.id} tvShow={tvShow} index={index} />
+        ))}
+      </AnimatePresence>
     </motion.div>
   );
 }
