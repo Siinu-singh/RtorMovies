@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { primeTheme } from '@/theme/theme';
-// import TVHeroCarousel from '@/components/tvshows/TVHeroCarousel';
-// import { getAllTVShows } from '@/lib/getTVShows';
+import TVHeroCarousel from '@/components/tvshows/TVHeroCarousel';
+import { getAllTVShows } from '@/lib/getTVShows';
 
 
 import AnimatedPage from '@/components/tvshows/AnimatedPage';
@@ -27,44 +27,47 @@ function getAllGenres(tvShows) {
   return Array.from(allGenresSet).sort();
 }
 
-
 function TvShowsPageContent() {
   const [allTvShows, setAllTvShows] = useState([]);
   const [filteredTvShows, setFilteredTvShows] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("All Shows");
   const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState(''); // State for search
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
       try {
-        const response = await fetch('/data/tvshows.json');
+        // First try to fetch from the API
+        const response = await fetch('/api/tvshows');
         if (!response.ok) {
-          console.warn("Direct fetch of tvshows.json failed. Trying dynamic import for demo.");
-          const dataModule = await import('@/data/tvshows.json');
-          const shows = dataModule.default;
-
-          setAllTvShows(shows);
-          setFilteredTvShows(shows);
-          setGenres(getAllGenres(shows));
-
-        } else {
-          const shows = await response.json();
-          setAllTvShows(shows);
-          setFilteredTvShows(shows);
-          setGenres(getAllGenres(shows));
+          throw new Error('API fetch failed');
+        }
+        const shows = await response.json();
+        
+        if (!Array.isArray(shows)) {
+          throw new Error('Invalid data format');
         }
 
+        setAllTvShows(shows);
+        setFilteredTvShows(shows);
+        setGenres(getAllGenres(shows));
       } catch (error) {
         console.error("Error fetching TV shows:", error);
+        // Fallback to empty arrays
+        setAllTvShows([]);
+        setFilteredTvShows([]);
+        setGenres([]);
       } finally {
         setIsLoading(false);
       }
     }
     fetchData();
   }, []);
+
+  // Get hero shows (first 3 shows) for the carousel
+  const heroShows = allTvShows.slice(0, 3);
 
   useEffect(() => {
     let showsToFilter = allTvShows;
@@ -103,17 +106,16 @@ function TvShowsPageContent() {
     document.title = title;
   }, [selectedGenre, searchTerm]);
 
-
-  // const allShows = getAllTVShows();
-  // const heroShows = allShows.slice(0, 3);
-
-  console.log("filteredTvShows", filteredTvShows);
-
-
   return (
     <AnimatedPage>
-      <div className="container mx-auto ">
-        {/* <TVHeroCarousel shows={heroShows} /> */}
+      <div className="container mx-auto px-4">
+        {/* Add the TVHeroCarousel at the top */}
+        {!isLoading && heroShows.length > 0 && (
+          <div className="mb-8">
+            <TVHeroCarousel shows={heroShows} />
+          </div>
+        )}
+
         <TvGradientHeading text="Discover TV Shows" />
 
         {/* New Search Component */}
@@ -123,7 +125,7 @@ function TvShowsPageContent() {
         />
 
         {isLoading && genres.length === 0 && (
-          <div className="mb-8 md:mb-12 px-4">
+          <div className="mb-8 md:mb-12">
             <Skeleton className="h-8 w-1/4 mb-4" />
             <div className="flex space-x-3">
               {[...Array(5)].map((_, i) => <Skeleton key={i} className="h-12 w-24 rounded-lg" />)}
@@ -131,15 +133,17 @@ function TvShowsPageContent() {
           </div>
         )}
         {!isLoading && genres.length > 0 && (
-          <TvCategorySection
-            genres={genres}
-            selectedGenre={selectedGenre}
-            onSelectGenre={handleSelectGenre}
-          />
+          <div className="mb-8">
+            <TvCategorySection
+              genres={genres}
+              selectedGenre={selectedGenre}
+              onSelectGenre={handleSelectGenre}
+            />
+          </div>
         )}
 
         {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             {[...Array(10)].map((_, i) => (
               <div key={i} className="bg-card rounded-xl shadow-lg overflow-hidden">
                 <Skeleton className="aspect-[2/3] w-full" />
@@ -153,7 +157,13 @@ function TvShowsPageContent() {
           </div>
         ) : (
           <div className="mt-8">
-            <TvShowGrid tvShows={filteredTvShows} />
+            {filteredTvShows.length > 0 ? (
+              <TvShowGrid tvShows={filteredTvShows} />
+            ) : (
+              <div className="text-center py-8">
+                <p className="text-lg text-muted-foreground">No TV shows found</p>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -162,7 +172,6 @@ function TvShowsPageContent() {
     </AnimatedPage>
   );
 }
-
 
 export default function TvShowsPage() {
   return <TvShowsPageContent />;

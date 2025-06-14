@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -48,6 +47,9 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isLiveTvOpen, setIsLiveTvOpen] = useState(false);
 
+  // Add this custom class for neon effect
+  const neonTextClass = "bg-gradient-to-r from-blue-400 via-blue-100 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]";
+
   return (
     <header
       className="sticky top-0 z-50 shadow-md" // Removed mx-6, mt-2, rounded-lg for a full-width feel
@@ -56,40 +58,53 @@ export default function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center space-x-4 md:space-x-6"> {/* Adjusted spacing */}
           <Link href="/" className="flex items-center space-x-2">
-            {/* Consider using an SVG logo for Prime-like branding if available */}
-            <span className="font-bold text-2xl md:text-3xl tracking-tight" style={{ color: primeTheme.colors.textPrimary}}>RtorMovies</span>
+            <span className={`font-bold text-2xl md:text-3xl tracking-tight ${neonTextClass}`}>
+              RtorMovies
+            </span>
           </Link>
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                  <NavigationMenuLink
-                    href="/"
-                    className={cn(navigationMenuTriggerStyle(), "text-sm font-medium", (pathname === '/') ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary')}
-                    style={{ backgroundColor: 'transparent' }} // Ensure nav links are transparent
-                    asChild
-                  >
-                    <Link href="/">Home</Link>
-                  </NavigationMenuLink>
+                <NavigationMenuLink
+                  href="/"
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-sm font-medium",
+                    (pathname === '/') ? neonTextClass : 'text-textSecondary hover:text-textPrimary'
+                  )}
+                  style={{ backgroundColor: 'transparent' }}
+                  asChild
+                >
+                  <Link href="/">Home</Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                  <NavigationMenuLink
-                    href="/movies"
-                    className={cn(navigationMenuTriggerStyle(), "text-sm font-medium", (pathname && pathname.startsWith('/movies')) ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary')}
-                    style={{ backgroundColor: 'transparent' }}
-                    asChild
-                  >
-                    <Link href="/movies">Movies</Link>
-                  </NavigationMenuLink>
+                <NavigationMenuLink
+                  href="/movies"
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-sm font-medium",
+                    (pathname && pathname.startsWith('/movies')) ? neonTextClass : 'text-textSecondary hover:text-textPrimary'
+                  )}
+                  style={{ backgroundColor: 'transparent' }}
+                  asChild
+                >
+                  <Link href="/movies">Movies</Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                  <NavigationMenuLink
-                    href="/tv-shows"
-                    className={cn(navigationMenuTriggerStyle(), "text-sm font-medium", (pathname === '/tv-shows') ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary')}
-                    style={{ backgroundColor: 'transparent' }}
-                    asChild
-                  >
-                    <Link href="/tv-shows">TV shows</Link>
-                  </NavigationMenuLink>
+                <NavigationMenuLink
+                  href="/tv-shows"
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-sm font-medium",
+                    (pathname === '/tv-shows') ? neonTextClass : 'text-textSecondary hover:text-textPrimary'
+                  )}
+                  style={{ backgroundColor: 'transparent' }}
+                  asChild
+                >
+                  <Link href="/tv-shows">TV shows</Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               {/* Live TV Dropdown Item */}
               <NavigationMenuItem className="relative"
@@ -101,17 +116,9 @@ export default function Navbar() {
                   className={cn(
                     navigationMenuTriggerStyle(),
                     "text-sm font-medium cursor-pointer",
-                    (pathname === '/live-tv' || pathname.startsWith('/live/')) ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary'
+                    (pathname === '/live-tv' || pathname.startsWith('/live/')) ? neonTextClass : 'text-textSecondary hover:text-textPrimary'
                   )}
                   style={{ backgroundColor: 'transparent' }}
-                  onClick={(e) => {
-                    // Allow navigation to /live-tv, but prevent interference if dropdown is also handling click
-                    if (isLiveTvOpen) {
-                      // If dropdown is open, let its links handle navigation primarily
-                      // Or, decide if this main link should always navigate
-                    }
-                    // setIsLiveTvOpen(false); // Optionally close dropdown on main link click
-                  }}
                 >
                   Live TV
                 </Link>
@@ -119,7 +126,11 @@ export default function Navbar() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className={cn(navigationMenuTriggerStyle(), "text-sm font-medium", (pathname && (pathname.startsWith('/browse/genre') || pathname.startsWith('/collections'))) ? 'text-accentBlueHover' : 'text-textSecondary hover:text-textPrimary')}
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    "text-sm font-medium",
+                    (pathname && (pathname.startsWith('/browse/genre') || pathname.startsWith('/collections'))) ? neonTextClass : 'text-textSecondary hover:text-textPrimary'
+                  )}
                   style={{ backgroundColor: 'transparent' }}
                 >
                   Categories
@@ -155,25 +166,25 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center space-x-2 md:space-x-3"> {/* Adjusted spacing */}
-          <Button variant="ghost" size="icon" className="hover:bg-backgroundLight" style={{ color: primeTheme.colors.textSecondary, '&:hover': { color: primeTheme.colors.textPrimary } }}>
+          <Button variant="ghost" size="icon" className="hover:bg-backgroundLight" style={{ color: primeTheme.colors.textSecondary }}>
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
           </Button>
           {/* "EN" dropdown placeholder */}
-          <Button variant="ghost" className="text-sm font-medium hover:bg-backgroundLight" style={{ color: primeTheme.colors.textSecondary, '&:hover': { color: primeTheme.colors.textPrimary } }}>
+          <Button variant="ghost" className="text-sm font-medium hover:bg-backgroundLight" style={{ color: primeTheme.colors.textSecondary }}>
             EN <ChevronDown className="ml-1 h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="hover:bg-backgroundLight" style={{ color: primeTheme.colors.textSecondary, '&:hover': { color: primeTheme.colors.textPrimary } }}>
+          {/* <Button variant="ghost" size="icon" className="hover:bg-backgroundLight" style={{ color: primeTheme.colors.textSecondary }}>
             <UserCircle className="h-6 w-6" />
             <span className="sr-only">Profile</span>
-          </Button>
-           {/* Prime Join Button - Example */}
+          </Button> */}
+           {/* Prime Join Button - Example
           <Button
-            className="text-sm font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-sm" // Prime buttons are often less rounded
-            style={{ backgroundColor: primeTheme.colors.accentBlue, color: primeTheme.colors.white, '&:hover': { backgroundColor: primeTheme.colors.accentBlueHover } }}
+            className={`text-sm font-semibold px-3 py-1.5 md:px-4 md:py-2 rounded-sm ${neonTextClass}`}
+            style={{ backgroundColor: 'transparent' }}
           >
             Join Prime
-          </Button>
+          </Button> */}
         </div>
       </div>
     </header>

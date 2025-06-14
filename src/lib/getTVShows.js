@@ -1,20 +1,27 @@
-import fs from 'fs/promises';
-import path from 'path';
-
 export async function getAllTVShows() {
-  // Construct the absolute path to the JSON file within src
-  const filePath = path.join(process.cwd(), 'src', 'data', 'tvshows.json');
   try {
-    const jsonData = await fs.readFile(filePath, 'utf-8');
-    const data = JSON.parse(jsonData);
+    const response = await fetch('/api/tvshows');
+    if (!response.ok) {
+      throw new Error('Failed to fetch TV shows');
+    }
+    const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Failed to read or parse src/data/tvshows.json:', error);
-    return []; // Return empty array on error
+    console.error('Error fetching TV shows:', error);
+    return [];
   }
 }
 
 export async function getTVShowById(id) {
-  const tvShows = await getAllTVShows();
-  return tvShows.find(show => show.id === id);
+  try {
+    const response = await fetch(`/api/tvshows/${id}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch TV show');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching TV show:', error);
+    return null;
+  }
 }
